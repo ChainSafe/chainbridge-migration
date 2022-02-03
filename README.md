@@ -1,5 +1,7 @@
 # chainbridge-migration
-Helper script for migrating ChainBridge from v1 to v2
+_Helper scripts for migrating ChainBridge from v1 to v2_
+
+### For full migration guide see our [wiki](https://github.com/ChainSafe/chainbridge-migration/wiki)
 
 ## Description
 The idea of this script is to ease the process of pausing bridge contracts while migrating from v1 to v2 of ChainBridge.
