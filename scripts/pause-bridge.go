@@ -56,8 +56,8 @@ func PauseBridge(v1BridgeConfig *util.V1BridgeConfig, config *util.Config) error
 			}
 		}
 
+		util.DisplayLine()
 		if anyChainHasPending {
-			util.DisplayLine()
 			fmt.Printf("Waiting for %d seconds....\n", 60)
 			time.Sleep(60 * time.Second)
 			continue
@@ -65,6 +65,9 @@ func PauseBridge(v1BridgeConfig *util.V1BridgeConfig, config *util.Config) error
 			break
 		}
 	}
+
+	fmt.Println("All proposals have been resolved!")
+	util.DisplayLine()
 
 	if config.AutoPauseBridge {
 		// pause bridge contracts on all chains
