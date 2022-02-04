@@ -8,21 +8,21 @@ The idea of these scripts is to ease the process of migrating from v1 to v2 of C
 You can execute two different scripts `stop-bridge` and `transfer-tokens`.
 
 ### `stop-bridge`
-Script will primarily check if all proposals have been resolved (for all chains defined in configuration of v1 of ChainBridge) and then pause bridge contract for each chain (only if `autoPauseBridge` configuration property is set to `true`)
+The script will primarily check if all proposals have been resolved (for all chains defined in the configuration of v1 of ChainBridge) and then pause bridge contract for each chain (only if `autoPauseBridge` configuration property is set to `true`)
 
 The script goes through all `ProposalEvents` emitted by [bridge contract](https://github.com/ChainSafe/chainbridge-solidity/blob/release/v1.0.0/contracts/Bridge.sol#L57) and parses if there are any Proposals that haven't been resolved (meaning Proposals with statuses _Active_ or _Passed_).
 This process is being executed for each chain defined in v1 ChainBridge configuration.
 All pending Proposals are displayed inside the console with some additional details.
 
-Described check for all pending Proposals will be restarted every 60 seconds until all pending Proposals have been resolved.
+The script will restart described check for all pending Proposals every 60 seconds until all pending Proposals have been resolved.
 After all pending Proposals are resolved, if `autoPauseBridge` configuration property is set to `true`, script will execute [`adminPauseTransfers`](https://github.com/ChainSafe/chainbridge-solidity/blob/release/v1.0.0/contracts/Bridge.sol#L147) on each bridge contract.
 
 ### `transfer-tokens`
 
-Script will go through all tokens defined in configuration, and execute [`adminWithdraw`](https://github.com/ChainSafe/chainbridge-solidity/blob/release/v1.0.0/contracts/Bridge.sol#L274) on appropriate bridge contract.
+The script will go through all tokens defined in the configuration, and execute [`adminWithdraw`](https://github.com/ChainSafe/chainbridge-solidity/blob/release/v1.0.0/contracts/Bridge.sol#L274) on the appropriate bridge contract.
 
-This script is used to ease up migrating liquidity for that are locked/release by handlers.
-Destination address defined in configuration for each token should be set to appropriate v2 handler so withdraw and migration is executed in one transaction.
+This script is used to ease up migrating liquidity for tokens that are locked/released by handlers.
+The destination address defined in the configuration for each token should be set to the appropriate v2 handler so that withdrawal and migration are executed in one transaction.
 
 ## How to use it
 
@@ -30,11 +30,10 @@ Destination address defined in configuration for each token should be set to app
 Clone this repo to your local machine.
 
 ### 2) Create configuration
-Define a **chainbridge-migration** configuration file. The script expects this file to be defined as `configuration.json` in the root of the project. See [Configuration](#configuration) for more details.
+Define a **chainbridge-migration** configuration file. The script expects this file to be defined as `configuration.json` in the project's root. See [Configuration](#configuration) for more details.
 
 ### 3) Start script
-Once the configuration has been created, the script can be started by running `make stop-bridge` or `make transfer-tokens`.
-
+Once the configuration has been created, you can start the script by running `make stop-bridge` or `make transfer-tokens`.
 
 ## Configuration
 
