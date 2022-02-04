@@ -66,10 +66,19 @@ func GetV1BridgeConfig(configPath string) (*V1BridgeConfig, error) {
 // script configuration
 
 type Config struct {
-	ConfigurationPath string            `json:"configurationPath"`
-	PrivateKeys       map[string]string `json:"privateKeys"`
-	StartingBlocks    map[string]string `json:"startingBlocks"`
-	AutoPauseBridge   bool              `json:"autoPauseBridge"`
+	ConfigurationPath string             `json:"configurationPath"`
+	PrivateKeys       map[string]string  `json:"privateKeys"`
+	StartingBlocks    map[string]string  `json:"startingBlocks"`
+	Tokens            map[string][]Token `json:"tokens"`
+	AutoPauseBridge   bool               `json:"autoPauseBridge"`
+}
+
+type Token struct {
+	HandlerAddress  string `json:"handlerAddress"`
+	TokenAddress    string `json:"tokenAddress"`
+	Recipient       string `json:"recipient"`
+	AmountOrTokenID string `json:"amountOrTokenID"`
+	Type            string `json:"type"`
 }
 
 const DefaultConfigPath = "./configuration.json"

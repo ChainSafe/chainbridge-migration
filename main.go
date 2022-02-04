@@ -43,6 +43,12 @@ func main() {
 			fmt.Print(err)
 		}
 		break
+	case "transfer-tokens":
+		err := scripts.TransferTokens(v1BridgeConfig, config)
+		if err != nil {
+			fmt.Print(err)
+		}
+		break
 	default:
 		fmt.Println("Invalid action")
 	}
