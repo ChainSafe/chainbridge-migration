@@ -39,7 +39,7 @@ Once the configuration has been created, you can start the script by running `ma
 
 - `configurationPath` - **[_required_]** - path to v1 ChainBridge configuration file.
 - `startingBlocks` - **[_optional_]** - mapping of **chain ID**** <> **starting block**. Defines from which block should script process events for each chain. If starting block for one chain is omitted (or this property is entirely omitted) script will start querying from the first block.
-- `autoPauseBridge` - **[_optional_]** - boolean value that defines if script should automatically execute [`adminPauseTransfers`](https://github.com/ChainSafe/chainbridge-solidity/blob/release/v1.0.0/contracts/Bridge.sol#L147) on each bridge contract after all Proposals are _Executed_ or _Cancelled_. 
+- `autoPauseBridge` - **[_optional_]** - boolean value that defines if script should automatically execute [adminPauseTransfers](https://github.com/ChainSafe/chainbridge-solidity/blob/release/v1.0.0/contracts/Bridge.sol#L147) on each bridge contract after all Proposals are _Executed_ or _Cancelled_. 
 - `privateKeys` - **[_required if `autoPauseBridge` set to true_]** - mapping of **chain ID**** <> **private key**. Defines administrator private keys for each bridge contract, used to execute pausing bridge.
 - `tokens` - **[_required for executing `transfer-tokens` script_]** - mapping of **chain ID**** <> **array of token descriptor object**. Defines tokens that should be transferred on each chain, each token entry is defined with: _handlerAddress_, _tokenAddress_, _recipient_, _amountOrTokenID_, _type [erc20/erc721]_ 
 
