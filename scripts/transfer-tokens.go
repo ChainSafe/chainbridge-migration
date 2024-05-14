@@ -45,7 +45,7 @@ func TransferTokens(v1BridgeConfig *util.V1BridgeConfig, config *util.Config) er
 					if len(token.AmountOrTokenID) != len(token.ERC1155Amounts) {
 						return errors.New(fmt.Sprintf("ERC1155 TokenIDs and token amounts arrays not the same lengths"))
 					}
-					data, err := constructERC1155WithdrawData(token)
+					data, err := constructERC1155WithdrawalData(token)
 					if err != nil {
 						return err
 					}
@@ -86,7 +86,7 @@ func constructNonERC1155WithdrawalData(token util.Token) ([]byte, error) {
 	return math.PaddedBigBytes(big.NewInt(amountOrTokenID), 32), nil
 }
 
-func constructERC1155WithdrawData(token util.Token) ([]byte, error) {
+func constructERC1155WithdrawalData(token util.Token) ([]byte, error) {
 	var withdrawalData []byte
 	/* ERC1155 data structure
 	8 byte - func sig
