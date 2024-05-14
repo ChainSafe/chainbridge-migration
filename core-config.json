@@ -1,0 +1,25 @@
+{
+  "relayer": {
+    "opentelemetryCollectorURL": "http://otel-collector:4318"
+  },
+  "chains": [
+    {
+      "id": "11155111",
+      "from": "0xf7d3FCFFC5A83b4cb4fa9Ed58cF05d3351Dff2Be",
+      "name": "evm1",
+      "type": "evm",
+      "endpoint": "https://1rpc.io/sepolia",
+      "opts":{
+        "bridge": "0xf8a203ed42fd724292c4e1ddbd8cb5c2898b6b0a",
+        "erc20Handler": "0x4088D85Eb0a035C8272113A266A1D22AA6dDeeDa",
+        "erc721Handler": "0x27c3b55ab2540b75e26b737487bf27ce5175ed2b",
+        "erc1155Handler": "0x59028077aC315Cbb30AbC450BD3Aa2b4E23D50d0"
+      },
+      "gasLimit": 9000000,
+      "maxGasPrice": 20000000000,
+      "blockConfirmations": 2,
+      "blockInterval": 2,
+      "key": "e62e288add5b9074360fe5812724c82faaff87894b9de30dfe8af2c17b336f6e"
+    }
+  ]
+}

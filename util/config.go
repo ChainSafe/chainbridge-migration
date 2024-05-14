@@ -74,11 +74,13 @@ type Config struct {
 }
 
 type Token struct {
-	HandlerAddress  string `json:"handlerAddress"`
-	TokenAddress    string `json:"tokenAddress"`
-	Recipient       string `json:"recipient"`
-	AmountOrTokenID string `json:"amountOrTokenID"`
-	Type            string `json:"type"`
+	HandlerAddress  string   `json:"handlerAddress"`
+	TokenAddress    string   `json:"tokenAddress"`
+	Recipient       string   `json:"recipient"`
+	Type            string   `json:"type"`
+	AmountOrTokenID []string `json:"amountOrTokenID"`
+	ERC1155Amounts  []string `json:"erc1155Amounts"`
+	TransferData    string   `json:"transferData"`
 }
 
 const DefaultConfigPath = "./configuration.json"
